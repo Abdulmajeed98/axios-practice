@@ -25,7 +25,7 @@ const PostsPage = () => {
     );
   }
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="grid grid-cols-3 gap-6">
       {posts?.map((post) => (
         <PostCard key={uniqid()} title={post.title} body={post.body} />
       ))}
