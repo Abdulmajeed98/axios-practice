@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "../../features/posts/postsSlice";
+import { getPosts } from "@features/posts/postsSlice";
 import uniqid from "uniqid";
-import PostCard from "../global/PostCard";
+import PostCard from "@components/global/PostCard";
+
 const PostsPage = () => {
   const dispatch = useDispatch();
   const { loading, posts, error } = useSelector((state) => state.posts);
