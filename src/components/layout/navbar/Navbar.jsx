@@ -3,7 +3,7 @@ import Navlink from "../../global/NavLink";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-center items-center py-4 gap-8 text-lg">
+    <nav className="flex items-center justify-center gap-8 py-4 text-lg">
       <Navlink to={"/"} text="Posts" />
       <Navlink to={"/comments"} text="Comments" />
       <Navlink to={"/todos"} text="Todos" />

@@ -13,7 +13,7 @@ export const fetchPosts = createAsyncThunk(
   `${BASE_NAME}/fetchPosts`,
   async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_JSON_BASE_URL}/osts`
+      `${import.meta.env.VITE_JSON_BASE_URL}/posts`
     );
     return data;
   }
