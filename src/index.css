@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply bg-slate-800 min-h-screen text-white
+}
+
+#root{
+    @apply h-full
+}
