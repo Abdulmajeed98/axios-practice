@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "@features/posts/postsSlice";
 import uniqid from "uniqid";
 import PostCard from "@components/global/PostCard";
+import LoadingIndicator from "@components/global/LoadingIndicator";
+import Error from "@components/global/Error";
 
 const PostsPage = () => {
   const dispatch = useDispatch();
@@ -11,18 +13,10 @@ const PostsPage = () => {
     dispatch(getPosts());
   }, []);
   if (loading) {
-    return (
-      <div className="flex h-full w-full items-center justify-center text-3xl">
-        Loading...
-      </div>
-    );
+    return <LoadingIndicator />;
   }
   if (error) {
-    return (
-      <div className="flex h-full w-full items-center justify-center text-3xl">
-        <p className="w-full bg-red-500 px-4 py-2 text-center">{error}</p>
-      </div>
-    );
+    return <Error message={error} />;
   }
   return (
     <div className="grid grid-cols-3 gap-6">
