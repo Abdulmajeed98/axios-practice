@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../features/posts/postsSlice";
 import uniqid from "uniqid";
+import PostCard from "../global/PostCard";
 const PostsPage = () => {
   const dispatch = useDispatch();
   const { loading, posts, error } = useSelector((state) => state.posts);
@@ -25,12 +26,7 @@ const PostsPage = () => {
   return (
     <div className="flex flex-col items-center gap-6">
       {posts?.map((post) => (
-        <div key={uniqid()} className="w-4/5 bg-zinc-700 p-8">
-          <h2 className="mb-8 w-1/2 text-2xl font-semibold capitalize">
-            {post.title}
-          </h2>
-          <p className="w-1/2">{post.body}</p>
-        </div>
+        <PostCard key={uniqid()} title={post.title} body={post.body} />
       ))}
     </div>
   );
