@@ -6,7 +6,7 @@ const BASE_NAME = "posts";
 const initialState = {
   loading: false,
   posts: [],
-  error: undefined,
+  error: null,
 };
 
 export const fetchPosts = createAsyncThunk(
@@ -30,9 +30,9 @@ const postsSlice = createSlice({
       state.loading = false;
       state.posts.push(payload);
     },
-    [fetchPosts.rejected]: (state, { payload }) => {
+    [fetchPosts.rejected]: (state, { error }) => {
       state.loading = false;
-      state.error = payload.error;
+      state.error = error.message;
     },
   },
 });
