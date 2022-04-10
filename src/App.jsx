@@ -9,12 +9,14 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<PostsPage />} />
-        <Route path="/comments" element={<CommentsPage />} />
-        <Route path="/todos" element={<TodosPage />} />
-        <Route path="/users" element={<UsersPage />} />
-      </Routes>
+      <div className="px-6 py-8 h-full">
+        <Routes>
+          <Route path="/" element={<PostsPage />} />
+          <Route path="/comments" element={<CommentsPage />} />
+          <Route path="/todos" element={<TodosPage />} />
+          <Route path="/users" element={<UsersPage />} />
+        </Routes>
+      </div>
     </>
   );
 };

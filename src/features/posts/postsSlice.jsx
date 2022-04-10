@@ -5,7 +5,7 @@ const BASE_NAME = "posts";
 
 const initialState = {
   loading: false,
-  posts: [],
+  posts: null,
   error: null,
 };
 
@@ -13,7 +13,7 @@ export const fetchPosts = createAsyncThunk(
   `${BASE_NAME}/fetchPosts`,
   async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_JSON_BASE_URL}/posts`
+      `${import.meta.env.VITE_JSON_BASE_URL}/osts`
     );
     return data;
   }
@@ -28,7 +28,7 @@ const postsSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.posts.push(payload);
+      state.posts = payload;
     },
     [fetchPosts.rejected]: (state, { error }) => {
       state.loading = false;

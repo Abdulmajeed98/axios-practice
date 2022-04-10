@@ -4,7 +4,7 @@
 
 
 body{
-    @apply bg-slate-800 min-h-screen text-white
+    @apply bg-slate-800 min-h-screen text-white grid 
 }
 
 #root{
