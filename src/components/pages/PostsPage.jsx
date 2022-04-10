@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../../features/posts/postsSlice";
+import { getPosts } from "../../features/posts/postsSlice";
 import uniqid from "uniqid";
 import PostCard from "../global/PostCard";
 const PostsPage = () => {
   const dispatch = useDispatch();
   const { loading, posts, error } = useSelector((state) => state.posts);
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(getPosts());
   }, []);
   if (loading) {
     return (

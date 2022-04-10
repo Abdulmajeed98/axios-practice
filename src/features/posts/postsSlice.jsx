@@ -9,28 +9,25 @@ const initialState = {
   error: null,
 };
 
-export const fetchPosts = createAsyncThunk(
-  `${BASE_NAME}/fetchPosts`,
-  async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_JSON_BASE_URL}/posts`
-    );
-    return data;
-  }
-);
+export const getPosts = createAsyncThunk(`${BASE_NAME}/getPosts`, async () => {
+  const { data } = await axios.get(
+    `${import.meta.env.VITE_JSON_BASE_URL}/posts`
+  );
+  return data;
+});
 
 const postsSlice = createSlice({
   name: "posts",
   initialState,
   extraReducers: {
-    [fetchPosts.pending]: (state) => {
+    [getPosts.pending]: (state) => {
       state.loading = true;
     },
-    [fetchPosts.fulfilled]: (state, { payload }) => {
+    [getPosts.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.posts = payload;
     },
-    [fetchPosts.rejected]: (state, { error }) => {
+    [getPosts.rejected]: (state, { error }) => {
       state.loading = false;
       state.error = error.message;
     },
