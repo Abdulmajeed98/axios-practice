@@ -12,7 +12,9 @@ export const getComments = createAsyncThunk(
   `${BASE_NAME}/getComments`,
   async () => {
     const { data } = await axios.get(
-      `${import.meta.env.VITE_JSON_BASE_URL}/comments`
+      `${import.meta.env.VITE_DELAY_URL}/${
+        import.meta.env.VITE_JSON_BASE_URL
+      }/comments`
     );
     return data;
   }

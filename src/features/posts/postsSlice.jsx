@@ -11,7 +11,9 @@ const initialState = {
 
 export const getPosts = createAsyncThunk(`${BASE_NAME}/getPosts`, async () => {
   const { data } = await axios.get(
-    `${import.meta.env.VITE_JSON_BASE_URL}/posts`
+    `${import.meta.env.VITE_DELAY_URL}/${
+      import.meta.env.VITE_JSON_BASE_URL
+    }/posts`
   );
   return data;
 });

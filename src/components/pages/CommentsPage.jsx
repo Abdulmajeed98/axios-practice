@@ -13,7 +13,6 @@ const CommentsPage = () => {
   useEffect(() => {
     dispatch(getComments());
   }, []);
-  console.log(comments);
   if (loading) {
     return <LoadingIndicator />;
   }
